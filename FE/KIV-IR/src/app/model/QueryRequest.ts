@@ -1,9 +1,9 @@
 export class SearchRequest {
-  public expression: string;
+  public query: string;
   public date: Date;
 
-  constructor(expression: string, date: Date) {
-    this.expression = expression;
+  constructor(query: string, date: Date) {
+    this.query = query;
     this.date = date;
   }
 }
