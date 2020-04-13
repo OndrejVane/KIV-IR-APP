@@ -1,4 +1,4 @@
-export class SearchRequest {
+export class QueryRequest {
   public query: string;
   public date: Date;
 

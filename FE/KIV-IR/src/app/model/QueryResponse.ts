@@ -1,4 +1,4 @@
-export class SearchResponse {
+export class QueryResponse {
   public response: string;
 
   constructor(response: string, date: Date) {

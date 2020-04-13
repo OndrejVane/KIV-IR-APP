@@ -3,3 +3,19 @@
   padding: 10px;
   width: 80%;
 }
+
+
+.search-box {
+  margin: 60px auto auto;
+  width: 50%;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--nav-text-color);
+}
+
+button:hover {
+  background-color: var(--primary-color-dark);
+  color: var(--nav-text-color);
+}
