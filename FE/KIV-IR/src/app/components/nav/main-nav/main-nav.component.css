@@ -1,0 +1,29 @@
+nav {
+  background-color: var(--primary-color);
+  -webkit-box-shadow: -1px 4px 19px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 4px 19px 1px rgba(0,0,0,0.75);
+  box-shadow: -1px 4px 19px 1px rgba(0,0,0,0.75);
+  z-index: 100;
+}
+
+.my-nav-item {
+  color: var(--nav-text-color);
+}
+
+.my-nav-logo {
+  color: var(--nav-text-color);
+}
+
+.my-nav-logo:hover {
+  color: var(--nav-text-color);
+}
+
+.my-nav-item:hover {
+  color: var(--nav-text-color);
+  background-color: var(--primary-color-dark);
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

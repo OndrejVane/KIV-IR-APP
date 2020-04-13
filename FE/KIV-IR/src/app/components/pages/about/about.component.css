@@ -1,0 +1,9 @@
+h1 {
+  font-size: xx-large;
+}
+
+.text-box {
+  margin: 60px auto auto;
+  padding: 10px;
+  width: 80%;
+}

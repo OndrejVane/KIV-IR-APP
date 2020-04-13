@@ -1,0 +1,6 @@
+/* here are defined default color values for all app usage color: var(--primary-color) */
+:root {
+  --primary-color: #563D7C;
+  --primary-color-dark: #322348;
+  --nav-text-color: #FFF;
+}
