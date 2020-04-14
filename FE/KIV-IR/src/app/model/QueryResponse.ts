@@ -1,7 +1,13 @@
-export class QueryResponse {
-  public response: string;
+import {Article} from './Article';
 
-  constructor(response: string, date: Date) {
-    this.response = response;
+export class QueryResponse {
+  public expression: string;
+  public date: Date;
+  public articles: Article[];
+
+  constructor(expression: string, date: Date, articles: Article[]) {
+    this.expression = expression;
+    this.date = date;
+    this.articles = articles;
   }
 }

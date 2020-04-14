@@ -13,11 +13,18 @@
   </div>
   <div class="search-box">
     <div class="input-group mb-3">
-      <input type="text" [(ngModel)]="expression" class="form-control" placeholder="Insert query" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input type="text" [(ngModel)]="expression"  (keydown.enter)="onSubmit()" class="form-control" placeholder="Insert query" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)="onSubmit()">Search</button>
       </div>
     </div>
   </div>
-  <p *ngIf="response">Response: {{response.response}}</p>
+  <p *ngIf="response">Sent expression: {{response.expression}}</p>
+  <p *ngIf="response">Date: {{response.date}}</p>
+  <ul>
+    <li *ngFor="let article of response.articles">
+      Author: {{article.author}}, Content: {{ article.content }}, Downloaded date: {{article.downloadedDate}}
+    </li>
+  </ul>
+
 </div>

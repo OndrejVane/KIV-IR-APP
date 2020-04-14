@@ -29,8 +29,8 @@ public class Controller {
         LOGGER.warn("WARN");
         LOGGER.error("ERROR");
         List<Article> articles = new ArrayList<>();
-        articles.add(new Article("Hello text from article 1"));
-        articles.add(new Article("Hello text from article 2"));
+        articles.add(new Article(new Date().toString(), "Title1", "Author1", "Content1", "URL1"));
+        articles.add(new Article(new Date().toString(), "Title2", "Author2", "Content2", "URL2"));
         return new QueryResponse(queryRequest.getQuery(), new Date(), articles);
     }
 }
