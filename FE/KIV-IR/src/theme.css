@@ -1,6 +1,12 @@
 /* here are defined default color values for all app usage color: var(--primary-color) */
 :root {
-  --primary-color: #563D7C;
-  --primary-color-dark: #322348;
+  --primary-color: #4a68d4;
+  --primary-color-dark: #3f55b6;
   --nav-text-color: #FFF;
+
+  /* google logo colours */
+  --logo-blue: #4285F4;
+  --logo-red: #DB4437;
+  --logo-yellow: #F4B400;
+  --logo-green: #0F9D58;
 }

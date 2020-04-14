@@ -6,7 +6,7 @@
 
 
 .search-box {
-  margin: 60px auto auto;
+  margin: 30px auto auto;
   width: 50%;
 }
 
@@ -18,4 +18,30 @@ button {
 button:hover {
   background-color: var(--primary-color-dark);
   color: var(--nav-text-color);
+}
+
+#wrapper {
+  width: 330px;
+  overflow: hidden; /* add this to contain floated children */
+  margin: auto;
+}
+
+.logo-letter {
+  float:left; /* add this */
+}
+
+.letter-blue {
+  color: var(--logo-blue);
+}
+
+.letter-red {
+  color: var(--logo-red);
+}
+
+.letter-yellow {
+  color: var(--logo-yellow);
+}
+
+.letter-green{
+  color: var(--logo-green);
 }

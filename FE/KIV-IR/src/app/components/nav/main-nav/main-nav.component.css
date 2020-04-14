@@ -27,3 +27,36 @@ nav {
   top: 0;
   width: 100%;
 }
+
+.logo {
+  margin-right: 10px;
+}
+#wrapper {
+  width: 100px;
+  overflow: hidden; /* add this to contain floated children */
+  margin: auto;
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.logo-letter {
+  float:left; /* add this */
+}
+
+.letter-blue {
+  color: var(--logo-blue);
+}
+
+.letter-red {
+  color: var(--logo-red);
+}
+
+.letter-yellow {
+  color: var(--logo-yellow);
+}
+
+.letter-green{
+  color: var(--logo-green);
+}
+

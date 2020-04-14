@@ -1,4 +1,4 @@
-package cz.vaneo.kiv.ir.InformationRetrieval.model.service;
+package cz.vaneo.kiv.ir.InformationRetrieval.model;
 
 import java.util.Date;
 
