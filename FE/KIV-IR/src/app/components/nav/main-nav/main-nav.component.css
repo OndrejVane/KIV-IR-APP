@@ -30,6 +30,7 @@ nav {
 
 .logo {
   margin-right: 10px;
+  cursor: pointer;
 }
 #wrapper {
   width: 100px;

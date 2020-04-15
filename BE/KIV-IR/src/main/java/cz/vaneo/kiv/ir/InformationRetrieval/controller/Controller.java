@@ -4,6 +4,8 @@ package cz.vaneo.kiv.ir.InformationRetrieval.controller;
 import cz.vaneo.kiv.ir.InformationRetrieval.model.Article;
 import cz.vaneo.kiv.ir.InformationRetrieval.model.QueryRequest;
 import cz.vaneo.kiv.ir.InformationRetrieval.model.QueryResponse;
+import cz.vaneo.kiv.ir.InformationRetrieval.utils.FileHelper;
+import cz.vaneo.kiv.ir.InformationRetrieval.utils.FileHelperJson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,13 +27,12 @@ public class Controller {
     @PostMapping("/")
     public QueryResponse index(@RequestBody QueryRequest queryRequest) {
 
-        LOGGER.info("INFO");
-        LOGGER.warn("WARN");
-        LOGGER.error("ERROR");
-        List<Article> articles = new ArrayList<>();
-        articles.add(new Article(new Date().toString(), "Title1", "Author1", "Content1", "URL1"));
-        articles.add(new Article(new Date().toString(), "Title2", "Author2", "Content2", "URL2"));
-        return new QueryResponse(queryRequest.getQuery(), new Date(), articles);
+        LOGGER.info("query request: " + queryRequest.getQuery());
+
+        FileHelper fileHelper = new FileHelperJson();
+        List<Article> articles2 = fileHelper.readFromFile();
+
+        return new QueryResponse(queryRequest.getQuery(), new Date(), articles2);
     }
 }
 
