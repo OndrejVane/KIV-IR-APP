@@ -12,34 +12,33 @@ import java.util.ArrayList;
 
 public class FileHelperJson implements FileHelper {
 
-    private static final String FILE_NAME = "articles.json";
+
 
     @Override
-    public void saveToFile(ArrayList<Article> articles) {
+    public void saveToFile(ArrayList<Article> articles, String fileName) {
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
         String json = gson.toJson(articles);
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 
             writer.write(json);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
-    public ArrayList<Article> readFromFile() {
+    public ArrayList<Article> readFromFile(String fileName) {
         Type REVIEW_TYPE = new TypeToken<ArrayList<Article>>() {
         }.getType();
         Gson gson = new Gson();
         JsonReader reader = null;
         ArrayList<Article> data = null;
         try {
-            reader = new JsonReader(new FileReader(FILE_NAME));
+            reader = new JsonReader(new FileReader(fileName));
             data = gson.fromJson(reader, REVIEW_TYPE); // contains the whole reviews list
         } catch (FileNotFoundException e) {
             e.printStackTrace();

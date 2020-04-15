@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public interface FileHelper {
 
-    void saveToFile(ArrayList<Article> articles);
+    void saveToFile(ArrayList<Article> articles, String fileName);
 
-    ArrayList<Article> readFromFile();
+    ArrayList<Article> readFromFile(String fileName);
 
 }
