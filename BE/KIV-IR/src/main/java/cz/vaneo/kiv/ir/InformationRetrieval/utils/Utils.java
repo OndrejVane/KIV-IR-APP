@@ -1,9 +1,14 @@
 package cz.vaneo.kiv.ir.InformationRetrieval.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import cz.vaneo.kiv.ir.InformationRetrieval.model.Article;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -99,4 +104,20 @@ public class Utils {
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
     }
+
+    public static List<Article> readArticlesFromJson(String fileName) {
+        Type REVIEW_TYPE = new TypeToken<ArrayList<Article>>() {
+        }.getType();
+        Gson gson = new Gson();
+        JsonReader reader = null;
+        ArrayList<Article> data = null;
+        try {
+            reader = new JsonReader(new FileReader(fileName));
+            data = gson.fromJson(reader, REVIEW_TYPE); // contains the whole reviews list
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 }
