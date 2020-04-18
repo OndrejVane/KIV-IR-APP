@@ -2,18 +2,28 @@ package cz.vaneo.kiv.ir.InformationRetrieval.model;
 
 public class Article {
 
+    private int id;
     private String downloadedDate;
     private String title;
     private String author;
     private String content;
     private String url;
 
-    public Article(String downloadedDate, String title, String author, String content, String url) {
+    public Article(int id, String downloadedDate, String title, String author, String content, String url) {
+        this.id = id;
         this.downloadedDate = downloadedDate;
         this.title = title;
         this.author = author;
         this.content = content;
         this.url = url;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDownloadedDate() {

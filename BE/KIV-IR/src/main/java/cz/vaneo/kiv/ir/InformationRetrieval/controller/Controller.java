@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Controller {
 
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-    private static final String FILE_NAME = "articles.json";
+    private static final String FILE_NAME = "articles_2.json";
 
 
     @PostMapping("/")
@@ -30,7 +31,7 @@ public class Controller {
         LOGGER.info("query request: " + queryRequest.getQuery());
 
         FileHelper fileHelper = new FileHelperJson();
-        List<Article> articles = fileHelper.readFromFile(FILE_NAME);
+        ArrayList<Article> articles = fileHelper.readFromFile(FILE_NAME);
 
         return new QueryResponse(queryRequest.getQuery(), new Date(), articles);
     }
