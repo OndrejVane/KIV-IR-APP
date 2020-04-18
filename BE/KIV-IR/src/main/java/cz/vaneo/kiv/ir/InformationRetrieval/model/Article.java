@@ -65,4 +65,9 @@ public class Article {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " +this.getId()+", Article : " + this.getTitle();
+    }
 }
