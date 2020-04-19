@@ -1,0 +1,12 @@
+<div class="text-box app-top-margin">
+  <div class="card">
+    <h1 class="card-header">All articles</h1>
+    <div class="card-body">
+      <ul *ngIf="articles">
+        <li *ngFor="let article of articles">
+          ID: {{article.id}}, Author: {{article.author}}, Title: {{ article.title }}, Downloaded date: {{article.downloadedDate}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
