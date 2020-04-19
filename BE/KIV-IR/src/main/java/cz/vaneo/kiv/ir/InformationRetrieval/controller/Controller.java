@@ -24,7 +24,7 @@ public class Controller {
 
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-    private static final String FILE_NAME = "articles_2.json";
+    private static final String FILE_NAME = "articles.json";
 
     @Autowired
     ArticleManager articleManager;

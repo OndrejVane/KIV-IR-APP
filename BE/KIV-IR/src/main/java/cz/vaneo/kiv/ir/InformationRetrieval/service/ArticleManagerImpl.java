@@ -12,6 +12,7 @@ import java.util.Map;
 public class ArticleManagerImpl implements ArticleManager {
 
     private final Map<Integer, Article> articles = new HashMap<>();
+    private Integer currentFreeId = 0;
 
     @Override
     public Article getArticle(int id) {
@@ -23,6 +24,9 @@ public class ArticleManagerImpl implements ArticleManager {
 
     @Override
     public boolean addArticle(Article article) {
+        article.setId(currentFreeId);
+        currentFreeId++;
+
         if (this.articles.containsKey(article.getId())) {
             return false;
         }

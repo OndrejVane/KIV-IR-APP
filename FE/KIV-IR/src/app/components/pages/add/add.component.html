@@ -2,7 +2,90 @@
   <div class="card">
     <h1 class="card-header">Add article</h1>
     <div class="card-body">
-      Body
+      <form #articleForm="ngForm" (ngSubmit)="submitArticle(articleForm.form);">
+
+        <!-- Author -->
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input name="author"
+                 type="name"
+                 class="form-control"
+                 id="author"
+                 ngModel
+                 #authorField="ngModel"
+                 required
+                 placeholder="First name and last name">
+          <div *ngIf="authorField.touched && authorField.errors">
+            <div class="alert alert-danger" *ngIf="authorField.errors.required">
+              Author name is required!
+            </div>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input name="title"
+                 type="text"
+                 class="form-control"
+                 id="title"
+                 ngModel
+                 #titleField="ngModel"
+                 required
+                 placeholder="Title of the article">
+          <div *ngIf="titleField.touched && titleField.errors">
+            <div class="alert alert-danger" *ngIf="titleField.errors.required">
+              Title is required!
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content"
+                    class="form-control"
+                    id="content"
+                    rows="5"
+                    ngModel
+                    #contentField="ngModel"
+                    required
+                    placeholder="Content of the article">
+          </textarea>
+          <div *ngIf="contentField.touched && contentField.errors">
+            <div class="alert alert-danger" *ngIf="contentField.errors.required">
+              Content is required!
+            </div>
+          </div>
+        </div>
+
+        <!-- Url address -->
+        <div class="form-group">
+          <label for="url">URL</label>
+          <input name="url"
+                 type="url"
+                 class="form-control"
+                 id="url"
+                 ngModel
+                 #urlField="ngModel"
+                 required
+                 placeholder="Url of the article">
+          <div *ngIf="urlField.touched && urlField.errors">
+            <div class="alert alert-danger" *ngIf="urlField.errors.required">
+              Url is required!
+            </div>
+          </div>
+        </div>
+        <div class="buttons text-center">
+          <button type="submit" class="btn btn-primary mb-2" [disabled]="!articleForm.valid">Add article</button>
+          <button type="reset" class="btn btn-primary mb-2">Clear form</button>
+        </div>
+      </form>
+      <div *ngIf="isSaved">
+        <div class="alert alert-success">
+          Article has been successfully saved!
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -29,4 +29,8 @@ export class QueryService {
   getAllArticles(): Observable<Article[]> {
     return this.httpClient.get<Article[]>(this.backendUrl + this.article, httpOptions);
   }
+
+  addArticle(newArticle: Article): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.backendUrl + this.article, newArticle, httpOptions);
+  }
 }
