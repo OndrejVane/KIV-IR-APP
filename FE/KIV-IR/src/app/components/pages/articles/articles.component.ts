@@ -9,13 +9,8 @@ import {Article} from '../../../model/Article';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles: Article[] = null;
-
-  constructor(private service: QueryService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.service.getAllArticles().subscribe( response => {
-      this.articles = response;
-    });
   }
 }

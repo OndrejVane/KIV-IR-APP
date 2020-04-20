@@ -10,6 +10,11 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponent } from './components/pages/articles/articles.component';
 import { AddComponent } from './components/pages/add/add.component';
+import { TableComponent } from './components/pages/articles/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,18 @@ import { AddComponent } from './components/pages/add/add.component';
     HomeComponent,
     AboutComponent,
     ArticlesComponent,
-    AddComponent
+    AddComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
