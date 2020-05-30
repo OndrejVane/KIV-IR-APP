@@ -1,0 +1,10 @@
+cz.vaneo.kiv.ir.InformationRetrieval
+cz.vaneo.kiv.ir.InformationRetrieval.controller
+cz.vaneo.kiv.ir.InformationRetrieval.core
+cz.vaneo.kiv.ir.InformationRetrieval.core.data
+cz.vaneo.kiv.ir.InformationRetrieval.core.math
+cz.vaneo.kiv.ir.InformationRetrieval.core.model
+cz.vaneo.kiv.ir.InformationRetrieval.core.preprocessing
+cz.vaneo.kiv.ir.InformationRetrieval.core.searching
+cz.vaneo.kiv.ir.InformationRetrieval.core.utils
+cz.vaneo.kiv.ir.InformationRetrieval.model
