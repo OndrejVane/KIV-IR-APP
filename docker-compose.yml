@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  ir-backend:
+    build:
+      ./BE/KIV-IR
+    image: ondrejvane/ir-backend:0.0.1
+    container_name: ir-backend
+    ports:
+      - 8080:8080
+
+  ir-fronted:
+    build:
+      ./FE/KIV-IR
+    image: ondrejvane/ir-frontend:0.0.1
+    container_name: ir-frontend
+    ports:
+      - 4200:80
+    links:
+      - ir-backend
