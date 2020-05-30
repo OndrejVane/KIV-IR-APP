@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './components/nav/main-nav/main-nav.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { AboutComponent } from './components/pages/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponent } from './components/pages/articles/articles.component';
 import { AddComponent } from './components/pages/add/add.component';
@@ -22,7 +21,6 @@ import { SettingsComponent } from './components/pages/settings/settings.componen
     AppComponent,
     MainNavComponent,
     HomeComponent,
-    AboutComponent,
     ArticlesComponent,
     AddComponent,
     TableComponent,
