@@ -19,9 +19,21 @@
       </div>
     </div>
   </div>
+  <div class="form-check">
+    <input (click)="setVectorModel()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      Vector model
+    </label>
+  </div>
+  <div class="form-check">
+    <input (click)="setBooleanModel()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+      Boolean model
+    </label>
+  </div>
   <p *ngIf="response">Sent expression: {{response.expression}}</p>
   <p *ngIf="response">Total results: {{response.numberOfAllResults}}</p>
-  <ul>
+  <ul *ngIf="response">
     <li *ngFor="let article of response.articles">
       Rank: {{article.rank}}, ID: {{article.id}}, Title: {{ article.title }}, Score: {{ article.score}}
     </li>

@@ -9,6 +9,7 @@ import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Message;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.QueryResult;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.searching.Index;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.searching.SearchModel;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.utils.IOUtils;
 import cz.vaneo.kiv.ir.InformationRetrieval.model.QueryRequest;
 import cz.vaneo.kiv.ir.InformationRetrieval.model.QueryResponse;
@@ -97,15 +98,36 @@ public class Controller {
     }
 
     /**
-     * Get all articles stored in article manager
+     * Získání všech zaindexovaných dokumentů
      *
-     * @return article
+     * @return articles
      */
     @GetMapping("/article")
     public List<Article> getAllArticles() {
         LOGGER.info("GET /article => getAllArticles()");
         return articleRepository.getAllArticles();
     }
+
+    /**
+     * Nastavování vyhledávácího modelu
+     *
+     * @param isVectorModel logiská hodnota, která říká o jaký model se jedná (true = vectorModel, false = booleanModel)
+     *
+     * @return návrat vstupní hodnoty
+     */
+    @PostMapping("/set")
+    public boolean setIndexModel(@RequestBody boolean isVectorModel) {
+        LOGGER.info("POST /set => setIndexModel()");
+        if(isVectorModel) {
+            index.setSearchModel(SearchModel.VECTOR_MODEL);
+            LOGGER.info("Vector model set");
+        } else {
+            index.setSearchModel(SearchModel.BOOLEAN_MODEL);
+            LOGGER.info("Boolean model set");
+        }
+        return isVectorModel;
+    }
+
 
 
 }

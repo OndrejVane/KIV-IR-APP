@@ -4,6 +4,7 @@ import {QueryRequest} from '../model/QueryRequest';
 import {QueryResponse} from '../model/QueryResponse';
 import {Observable} from 'rxjs';
 import {Article} from '../model/Article';
+import {SetModel} from '../model/SetModel';
 
 const httpOptions = {
   headers: new HttpHeaders( {
@@ -19,6 +20,7 @@ export class QueryService {
   backendUrl = 'http://localhost:8080';
   searchUrl = '/';
   article = '/article';
+  setModel = '/set';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -32,5 +34,9 @@ export class QueryService {
 
   addArticle(newArticle: Article): Observable<boolean> {
     return this.httpClient.post<boolean>(this.backendUrl + this.article, newArticle, httpOptions);
+  }
+
+  setIndexModel(isVectorModel: boolean): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.backendUrl + this.setModel, isVectorModel, httpOptions);
   }
 }
