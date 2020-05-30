@@ -1,11 +1,15 @@
 package cz.vaneo.kiv.ir.InformationRetrieval.core.model;
 
+import java.io.Serializable;
+
 /**
  * Modelová třída pro moje stáhnutá data.
  *
  * @author ondrejvane
  */
-public class Article {
+public class Article implements Serializable {
+
+    final static long serialVersionUID = -8852692424583653999L;
 
     private String id;
     private String downloadedDate;

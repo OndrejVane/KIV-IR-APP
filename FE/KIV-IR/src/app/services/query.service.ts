@@ -4,7 +4,7 @@ import {QueryRequest} from '../model/QueryRequest';
 import {QueryResponse} from '../model/QueryResponse';
 import {Observable} from 'rxjs';
 import {Article} from '../model/Article';
-import {SetModel} from '../model/SetModel';
+import {Message} from '../model/Message';
 
 const httpOptions = {
   headers: new HttpHeaders( {
@@ -21,6 +21,10 @@ export class QueryService {
   searchUrl = '/';
   article = '/article';
   setModel = '/set';
+  initialization = '/init';
+  saveToFile = '/save';
+  loadFromFile = '/load';
+  delete = '/delete';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -38,5 +42,21 @@ export class QueryService {
 
   setIndexModel(isVectorModel: boolean): Observable<boolean> {
     return this.httpClient.post<boolean>(this.backendUrl + this.setModel, isVectorModel, httpOptions);
+  }
+
+  initArticles(): Observable<Message> {
+    return this.httpClient.get<Message>(this.backendUrl + this.initialization, httpOptions);
+  }
+
+  saveIndexToFile(): Observable<Message> {
+    return this.httpClient.get<Message>(this.backendUrl + this.saveToFile, httpOptions);
+  }
+
+  loadIndexFromFile(): Observable<Message> {
+    return this.httpClient.get<Message>(this.backendUrl + this.loadFromFile, httpOptions);
+  }
+
+  deleteAll(): Observable<Message> {
+    return this.httpClient.get<Message>(this.backendUrl + this.delete, httpOptions);
   }
 }

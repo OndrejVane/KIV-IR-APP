@@ -1,4 +1,4 @@
-package cz.vaneo.kiv.ir.InformationRetrieval.core.model;
+package cz.vaneo.kiv.ir.InformationRetrieval.model;
 
 public class Message {
 

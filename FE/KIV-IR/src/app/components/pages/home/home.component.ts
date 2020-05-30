@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 import {QueryRequest} from '../../../model/QueryRequest';
 import {QueryResponse} from '../../../model/QueryResponse';
-import {SetModel} from '../../../model/SetModel';
 
 @Component({
   selector: 'app-home',

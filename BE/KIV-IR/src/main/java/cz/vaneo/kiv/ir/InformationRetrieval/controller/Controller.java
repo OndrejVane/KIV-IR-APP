@@ -6,7 +6,7 @@ import cz.vaneo.kiv.ir.InformationRetrieval.core.data.ArticleRepositoryImpl;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.data.Document;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.data.Result;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
-import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Message;
+import cz.vaneo.kiv.ir.InformationRetrieval.model.Message;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.QueryResult;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.searching.Index;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.searching.SearchModel;
@@ -24,7 +24,9 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    private static final String FILE_NAME = "test_3.json";
+    private static final String FILE_NAME = "articles.json";
+    private static final String INDEX_FILE_NAME = "file_index";
+    private static final String ARTICLES_FILE_NAME = "file_articles";
     private static final int NUMBER_OF_HITS = 10;
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
     ArticleRepository articleRepository = new ArticleRepositoryImpl();
@@ -128,7 +130,51 @@ public class Controller {
         return isVectorModel;
     }
 
+    /**
+     * Metoda pro uložení indexu a všech článků do souboru.
+     *
+     * @return zpráva o uložení
+     */
+    @GetMapping("/save")
+    public Message saveIndexToFile() {
+        LOGGER.info("GET /save => saveIndexToFile()");
+        index.saveInvertedIndexToFile(INDEX_FILE_NAME);
+        IOUtils.saveArticlesRepositoryToFile((ArticleRepositoryImpl) articleRepository, ARTICLES_FILE_NAME);
+        index = new Index();
+        articleRepository = new ArticleRepositoryImpl();
+        return new Message(true, "All indexed files stored to file...index cleared");
+    }
 
+    /**
+     * Metoda pro načtení indexu a všech dokumentů ze souboru
+     *
+     * @return zpráva a načtení
+     */
+    @GetMapping("/load")
+    public Message loadIndexFromFile() {
+        LOGGER.info("GET /load => loadIndexFromFile()");
+        index = new Index();
+        articleRepository = new ArticleRepositoryImpl();
+        boolean isLoaded = index.loadInvertedIndexFromFile(INDEX_FILE_NAME);
+        if(isLoaded) {
+            articleRepository = IOUtils.loadArticleRepositoryFromFile(ARTICLES_FILE_NAME);
+            return new Message(true, "All data has been successfully loaded from file");
+        } else {
+            return new Message(false, "Cannot load data from file");
+        }
+    }
 
+    /**
+     * Metoda pro smazání všech dat v aplikaci
+     *
+     * @return zpráva o smazání
+     */
+    @GetMapping("/delete")
+    public Message deleteAllData() {
+        LOGGER.info("GET /delete => deleteAllData()");
+        index = new Index();
+        articleRepository = new ArticleRepositoryImpl();
+        return new Message(true, "All data has been successfully deleted");
+    }
 }
 

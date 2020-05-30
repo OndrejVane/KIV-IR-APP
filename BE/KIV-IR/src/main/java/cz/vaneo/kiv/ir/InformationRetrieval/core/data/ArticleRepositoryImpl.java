@@ -3,6 +3,7 @@ package cz.vaneo.kiv.ir.InformationRetrieval.core.data;
 
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,9 @@ import java.util.Map;
  *
  * @author ondrejvane
  */
-public class ArticleRepositoryImpl implements ArticleRepository {
+public class ArticleRepositoryImpl implements ArticleRepository, Serializable {
+
+    final static long serialVersionUID = -804698021100570495L;
 
     private HashMap<Integer, Article> articles = new HashMap<>();
 

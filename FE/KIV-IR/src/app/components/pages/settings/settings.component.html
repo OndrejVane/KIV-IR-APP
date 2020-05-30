@@ -1,0 +1,23 @@
+<div class="text-box app-top-margin">
+  <button (click)="init()" class="btn btn-outline-secondary" type="submit">Initialization</button>
+  <button (click)="save()" class="btn btn-outline-secondary" type="submit">Save to file</button>
+  <button (click)="load()" class="btn btn-outline-secondary" type="submit">Load from file</button>
+  <button (click)="delete()" id="delete" class="btn btn-outline-secondary" type="submit">Delete all</button>
+  <div *ngIf="message">
+    <div *ngIf="!message.isSuccess" id="alert" class="alert alert-success">
+      {{message.message}}
+    </div>
+    <div *ngIf="message.isSuccess" id="alert1" class="alert alert-danger">
+      {{message.message}}
+    </div>
+  </div>
+
+  <ul>
+    <li><b>Initialization</b> - It will load all articles from file stored on backend and then will index it.</li>
+    <li><b>Save to file</b> - It will store all indexed articles to file.</li>
+    <li><b>Load from file</b> - It will load all indexed asrticles from file.</li>
+    <li><b>Delete</b> - It will delete all indexed data in app</li>
+  </ul>
+</div>
+
+

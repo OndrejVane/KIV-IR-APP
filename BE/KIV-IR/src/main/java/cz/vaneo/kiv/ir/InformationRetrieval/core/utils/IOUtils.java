@@ -3,6 +3,7 @@ package cz.vaneo.kiv.ir.InformationRetrieval.core.utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.data.ArticleRepositoryImpl;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.searching.InvertedList;
 
@@ -157,6 +158,36 @@ public class IOUtils {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream, BUFFER_STREAM_SIZE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
             objectOutputStream.writeObject(invertedList);
+            objectOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArticleRepositoryImpl loadArticleRepositoryFromFile(String filename) {
+        try {
+            int BUFFER_STREAM_SIZE = 16 * 1024 * 1024;
+
+            FileInputStream fileInputStream = new FileInputStream(filename);
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream, BUFFER_STREAM_SIZE);
+            ObjectInputStream objectInputStream = new ObjectInputStream(bufferedInputStream);
+            ArticleRepositoryImpl articleRepository = (ArticleRepositoryImpl) objectInputStream.readObject();
+            objectInputStream.close();
+            return articleRepository;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void saveArticlesRepositoryToFile(ArticleRepositoryImpl articleRepository, String filename) {
+        try {
+            int BUFFER_STREAM_SIZE = 16 * 1024 * 1024;
+
+            FileOutputStream fileOutputStream = new FileOutputStream(filename);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream, BUFFER_STREAM_SIZE);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
+            objectOutputStream.writeObject(articleRepository);
             objectOutputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
