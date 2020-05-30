@@ -96,6 +96,17 @@ public class Controller {
         return true;
     }
 
+    /**
+     * Get all articles stored in article manager
+     *
+     * @return article
+     */
+    @GetMapping("/article")
+    public List<Article> getAllArticles() {
+        LOGGER.info("GET /article => getAllArticles()");
+        return articleRepository.getAllArticles();
+    }
+
 
 }
 
