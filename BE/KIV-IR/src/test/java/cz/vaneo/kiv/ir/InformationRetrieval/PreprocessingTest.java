@@ -1,9 +1,9 @@
 package cz.vaneo.kiv.ir.InformationRetrieval;
 
 
-import cz.vaneo.kiv.ir.InformationRetrieval.model.Article;
-import cz.vaneo.kiv.ir.InformationRetrieval.preprocessing.*;
-import cz.vaneo.kiv.ir.InformationRetrieval.utils.Utils;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.preprocessing.*;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.utils.IOUtils;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class PreprocessingTest {
 
     private static void createNewInstance() {
         preprocessing = new BasicPreprocessing(
-                new CzechStemmerAggressive(), new AdvancedTokenizer(), CzechStopWordsLoader.readStopWords("stopwords.txt"), false, true, true);
+                new CzechStemmerAgressive(), new AdvancedTokenizer(), CzechStopWordsLoader.readStopWords("stopwords.txt"), false, true, true);
     }
 
     @Test
@@ -255,7 +255,7 @@ public class PreprocessingTest {
         createNewInstance();
 
         // load data from file
-        List<Article> articles = Utils.readArticlesFromJson("articles.json");
+        List<Article> articles = IOUtils.readArticlesFromFile("articles.json");
 
         // check if my data has been load
         assertNotNull(articles);
