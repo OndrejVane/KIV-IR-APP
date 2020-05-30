@@ -22,10 +22,12 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     private int currentFreeId = 0;
 
     @Override
-    public void addNewArticle(Article article) {
+    public int addNewArticle(Article article) {
+        int givenId = currentFreeId;
         article.setId(Integer.toString(currentFreeId));
         articles.put(currentFreeId, article);
         currentFreeId++;
+        return givenId;
     }
 
     @Override
@@ -77,5 +79,18 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         }
 
         return documents;
+    }
+
+    @Override
+    public Document getArticleAsDocumentById(int id) {
+        Article entry = getArticleById(Integer.toString(id));
+
+        DocumentNew document = new DocumentNew();
+        document.setId(entry.getId());
+        document.setTitle(entry.getTitle());
+        document.setText(entry.getContent());
+        document.setDate(entry.getDownloadedDate());
+
+        return document;
     }
 }

@@ -3,6 +3,7 @@ package cz.vaneo.kiv.ir.InformationRetrieval.controller;
 
 import cz.vaneo.kiv.ir.InformationRetrieval.core.data.ArticleRepository;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.data.ArticleRepositoryImpl;
+import cz.vaneo.kiv.ir.InformationRetrieval.core.data.Document;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.data.Result;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Article;
 import cz.vaneo.kiv.ir.InformationRetrieval.core.model.Message;
@@ -22,7 +23,7 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    private static final String FILE_NAME = "articles.json";
+    private static final String FILE_NAME = "test_3.json";
     private static final int NUMBER_OF_HITS = 10;
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
     ArticleRepository articleRepository = new ArticleRepositoryImpl();
@@ -76,6 +77,23 @@ public class Controller {
         }
 
         return new QueryResponse(articles, results.getNumberOfFoundDocuments(), queryRequest.getQuery());
+    }
+
+    /**
+     * Přidání nového článku a zaindexování do stávajícího indexu.
+     *
+     * @param article nový článek
+     * @return logická honodnota, že vše dopadlo vpořádku
+     */
+    @PostMapping("/article")
+    public boolean addArticle(@RequestBody Article article) {
+        LOGGER.info("POST /article => addArticle(article)");
+        int docId = articleRepository.addNewArticle(article);
+        Document newDoc = articleRepository.getArticleAsDocumentById(docId);
+
+        index.index(newDoc);
+
+        return true;
     }
 
 

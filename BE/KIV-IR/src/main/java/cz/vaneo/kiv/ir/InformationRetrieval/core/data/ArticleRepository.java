@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ArticleRepository {
 
-    void addNewArticle(Article article);
+    int addNewArticle(Article article);
 
     void addNewArticles(List<Article> articles);
 
@@ -28,5 +28,7 @@ public interface ArticleRepository {
     int getNumberOfDocuments();
 
     List<Document> getArticlesAsDocument();
+
+    Document getArticleAsDocumentById(int id);
 
 }

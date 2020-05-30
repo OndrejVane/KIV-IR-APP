@@ -68,7 +68,7 @@ public class DocumentNew implements Document, Serializable {
         try {
             this.date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
         } catch (ParseException e) {
-            e.printStackTrace();
+                this.date = new Date();
         }
     }
 }
