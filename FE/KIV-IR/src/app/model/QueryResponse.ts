@@ -2,12 +2,12 @@ import {Article} from './Article';
 
 export class QueryResponse {
   public expression: string;
-  public date: Date;
+  public numberOfAllResults: number;
   public articles: Article[];
 
-  constructor(expression: string, date: Date, articles: Article[]) {
+  constructor(expression: string, numberOfAllResults: number, articles: Article[]) {
     this.expression = expression;
-    this.date = date;
+    this.numberOfAllResults = numberOfAllResults;
     this.articles = articles;
   }
 }

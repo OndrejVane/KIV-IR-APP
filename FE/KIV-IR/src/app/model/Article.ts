@@ -6,6 +6,8 @@ export class Article {
   public author: string;
   public content: string;
   public url: string;
+  public score: number;
+  public rank: number;
 
 
   constructor(id: number, downloadedDate: Date, title: string, author: string, content: string, url: string) {

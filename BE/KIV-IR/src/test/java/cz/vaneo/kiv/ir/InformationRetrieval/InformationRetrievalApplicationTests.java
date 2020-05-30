@@ -8,6 +8,7 @@ class InformationRetrievalApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// check if app will start
 	}
 
 }

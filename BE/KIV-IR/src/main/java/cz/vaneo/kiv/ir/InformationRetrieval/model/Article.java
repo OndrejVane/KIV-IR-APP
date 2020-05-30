@@ -8,14 +8,21 @@ public class Article {
     private String author;
     private String content;
     private String url;
+    private float score;
+    private int rank;
 
-    public Article(int id, String downloadedDate, String title, String author, String content, String url) {
+    public Article() {
+    }
+
+    public Article(int id, String downloadedDate, String title, String author, String content, String url, float score, int rank) {
         this.id = id;
         this.downloadedDate = downloadedDate;
         this.title = title;
         this.author = author;
         this.content = content;
         this.url = url;
+        this.score = score;
+        this.rank = rank;
     }
 
     public int getId() {
@@ -65,6 +72,23 @@ public class Article {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
 
     @Override
     public String toString() {

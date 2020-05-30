@@ -1,34 +1,17 @@
 package cz.vaneo.kiv.ir.InformationRetrieval.model;
 
-import java.util.Date;
 import java.util.List;
 
 public class QueryResponse {
 
-    private String expression;
-    private Date date;
     private List<Article> articles;
+    private int numberOfAllResults;
+    private String expression;
 
-    public QueryResponse(String expression, Date date, List<Article> articles) {
-        this.expression = expression;
-        this.date = date;
+    public QueryResponse(List<Article> articles, int numberOfAllResults, String expression) {
         this.articles = articles;
-    }
-
-    public String getExpression() {
-        return expression;
-    }
-
-    public void setExpression(String expression) {
+        this.numberOfAllResults = numberOfAllResults;
         this.expression = expression;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public List<Article> getArticles() {
@@ -37,5 +20,21 @@ public class QueryResponse {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    public int getNumberOfAllResults() {
+        return numberOfAllResults;
+    }
+
+    public void setNumberOfAllResults(int numberOfAllResults) {
+        this.numberOfAllResults = numberOfAllResults;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
     }
 }

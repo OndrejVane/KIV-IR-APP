@@ -37,7 +37,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
     @Override
     public Article getArticleById(String articleId) {
-        return articles.getOrDefault(articleId, null);
+        return articles.getOrDefault(Integer.parseInt(articleId), null);
     }
 
     @Override

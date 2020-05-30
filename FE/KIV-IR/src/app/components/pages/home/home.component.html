@@ -20,10 +20,10 @@
     </div>
   </div>
   <p *ngIf="response">Sent expression: {{response.expression}}</p>
-  <p *ngIf="response">Date: {{response.date}}</p>
+  <p *ngIf="response">Total results: {{response.numberOfAllResults}}</p>
   <ul>
     <li *ngFor="let article of response.articles">
-      ID: {{article.id}}, Author: {{article.author}}, Title: {{ article.title }}, Downloaded date: {{article.downloadedDate}}
+      Rank: {{article.rank}}, ID: {{article.id}}, Title: {{ article.title }}, Score: {{ article.score}}
     </li>
   </ul>
 
