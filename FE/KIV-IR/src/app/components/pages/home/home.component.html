@@ -19,6 +19,8 @@
       </div>
     </div>
   </div>
+  <mat-progress-bar *ngIf="sentRequest" class="progress-bar-my" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar *ngIf="successfulResponse" class="progress-bar-my" mode="determinate" value="100"></mat-progress-bar>
   <div class="form-check">
     <input (click)="setVectorModel()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
     <label class="form-check-label" for="exampleRadios1">

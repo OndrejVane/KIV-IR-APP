@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 
   expression: string;
   response: QueryResponse = null;
+  sentRequest = false;
+  successfulResponse = false;
 
   constructor( private queryService: QueryService) { }
 
@@ -21,10 +23,22 @@ export class HomeComponent implements OnInit {
     this.setVectorModel();
   }
 
+  setProgressBar(value: boolean) {
+    if (value) {
+      this.sentRequest = value;
+      this.successfulResponse = false;
+    } else {
+      this.sentRequest = value;
+      this.successfulResponse = true;
+    }
+  }
+
   onSubmit() {
+    this.setProgressBar(true);
     this.response = null;
     this.queryService.searchPost(new QueryRequest(this.expression, new Date())).subscribe( response => {
       this.response = response;
+      this.setProgressBar(false);
     });
   }
 

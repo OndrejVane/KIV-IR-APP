@@ -41,6 +41,11 @@ public class Controller {
     public Message init() {
         LOGGER.info("GET / => init()");
 
+        LOGGER.info("Cleaning index and repository");
+        index = new Index();
+        articleRepository = new ArticleRepositoryImpl();
+
+
         List<Article> articles = IOUtils.readArticlesFromFile(FILE_NAME);
 
         articleRepository.addNewArticles(articles);

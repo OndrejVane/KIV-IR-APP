@@ -9,6 +9,11 @@
   width: 50%;
 }
 
+.progress-bar-my {
+  margin: 30px auto auto;
+  width: 60%;
+}
+
 button {
   background-color: var(--primary-color);
   color: var(--nav-text-color);

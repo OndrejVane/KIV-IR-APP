@@ -31,9 +31,19 @@ button {
 
 #alert {
   width: 82%;
+  margin-top: 5px;
 }
 
 #alert1 {
+  width: 82%;
+  margin-top: 5px;
+}
+
+.help {
+  margin-top: 20px;
+}
+
+.loading {
   width: 82%;
 }
 

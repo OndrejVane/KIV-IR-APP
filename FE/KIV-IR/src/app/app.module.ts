@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './components/pages/settings/settings.component';
 import { ResultTableComponent } from './components/pages/home/result-table/result-table.component';
+import {MatProgressBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ResultTableComponent } from './components/pages/home/result-table/resul
     MatPaginatorModule,
     MatSortModule,
     BrowserAnimationsModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
