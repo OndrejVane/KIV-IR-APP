@@ -3,7 +3,7 @@ package cz.zcu.kiv.nlp.ir.trec.core.utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import cz.zcu.kiv.nlp.ir.trec.core.data.ArticleRepositoryImpl;
+import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepositoryImpl;
 import cz.zcu.kiv.nlp.ir.trec.core.model.Article;
 import cz.zcu.kiv.nlp.ir.trec.core.searching.InvertedList;
 

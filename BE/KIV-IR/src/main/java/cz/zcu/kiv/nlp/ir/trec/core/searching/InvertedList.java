@@ -1,8 +1,8 @@
 package cz.zcu.kiv.nlp.ir.trec.core.searching;
 
 import cz.zcu.kiv.nlp.ir.trec.controller.Controller;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Result;
 import cz.zcu.kiv.nlp.ir.trec.core.math.CosineSimilarityCalculator;
 import cz.zcu.kiv.nlp.ir.trec.core.math.ScoreCalculator;
 import cz.zcu.kiv.nlp.ir.trec.core.model.IndexItem;

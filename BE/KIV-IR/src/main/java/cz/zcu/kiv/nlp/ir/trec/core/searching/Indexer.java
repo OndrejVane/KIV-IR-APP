@@ -1,7 +1,7 @@
 package cz.zcu.kiv.nlp.ir.trec.core.searching;
 
 
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
 
 import java.util.List;
 

@@ -2,9 +2,9 @@ package cz.zcu.kiv.nlp.ir.trec.core.searching;
 
 
 import cz.zcu.kiv.nlp.ir.trec.controller.Controller;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Result;
-import cz.zcu.kiv.nlp.ir.trec.core.data.ResultImpl;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.data.ResultImpl;
 import cz.zcu.kiv.nlp.ir.trec.core.model.IndexItem;
 import cz.zcu.kiv.nlp.ir.trec.core.model.QueryResult;
 import cz.zcu.kiv.nlp.ir.trec.core.preprocessing.Preprocessing;

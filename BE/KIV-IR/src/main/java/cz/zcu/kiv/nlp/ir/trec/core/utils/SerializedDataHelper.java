@@ -2,8 +2,8 @@ package cz.zcu.kiv.nlp.ir.trec.core.utils;
 
 
 import cz.zcu.kiv.nlp.ir.trec.controller.Controller;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Topic;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Topic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,18 +1,18 @@
 package cz.zcu.kiv.nlp.ir.trec.controller;
 
 
-import cz.zcu.kiv.nlp.ir.trec.core.data.ArticleRepository;
-import cz.zcu.kiv.nlp.ir.trec.core.data.ArticleRepositoryImpl;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepository;
+import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepositoryImpl;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Result;
 import cz.zcu.kiv.nlp.ir.trec.core.model.Article;
-import cz.zcu.kiv.nlp.ir.trec.api_model.Message;
+import cz.zcu.kiv.nlp.ir.trec.api.Message;
 import cz.zcu.kiv.nlp.ir.trec.core.model.QueryResult;
 import cz.zcu.kiv.nlp.ir.trec.core.searching.Index;
 import cz.zcu.kiv.nlp.ir.trec.core.searching.SearchModel;
 import cz.zcu.kiv.nlp.ir.trec.core.utils.IOUtils;
-import cz.zcu.kiv.nlp.ir.trec.api_model.QueryRequest;
-import cz.zcu.kiv.nlp.ir.trec.api_model.QueryResponse;
+import cz.zcu.kiv.nlp.ir.trec.api.QueryRequest;
+import cz.zcu.kiv.nlp.ir.trec.api.QueryResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -64,9 +64,9 @@ public class Controller {
         LOGGER.info("Searching: " + queryRequest.getQuery());
         
         QueryResult results = index.search(queryRequest.getQuery(), NUMBER_OF_HITS);
-        List<cz.zcu.kiv.nlp.ir.trec.api_model.Article> articles = new ArrayList<>();
+        List<cz.zcu.kiv.nlp.ir.trec.api.Article> articles = new ArrayList<>();
         for (Result result : results.getResults()) {
-            cz.zcu.kiv.nlp.ir.trec.api_model.Article article = new cz.zcu.kiv.nlp.ir.trec.api_model.Article();
+            cz.zcu.kiv.nlp.ir.trec.api.Article article = new cz.zcu.kiv.nlp.ir.trec.api.Article();
             article.setId(Integer.parseInt(result.getDocumentID()));
             article.setRank(result.getRank());
             article.setScore(result.getScore());

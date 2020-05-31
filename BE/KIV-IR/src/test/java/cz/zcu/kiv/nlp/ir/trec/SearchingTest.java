@@ -1,8 +1,8 @@
 package cz.zcu.kiv.nlp.ir.trec;
 
-import cz.zcu.kiv.nlp.ir.trec.core.data.ArticleRepository;
-import cz.zcu.kiv.nlp.ir.trec.core.data.ArticleRepositoryImpl;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepository;
+import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepositoryImpl;
+import cz.zcu.kiv.nlp.ir.trec.data.Result;
 import cz.zcu.kiv.nlp.ir.trec.core.model.Article;
 import cz.zcu.kiv.nlp.ir.trec.core.model.QueryResult;
 import cz.zcu.kiv.nlp.ir.trec.core.searching.Index;

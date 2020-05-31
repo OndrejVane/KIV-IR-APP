@@ -1,8 +1,8 @@
-package cz.zcu.kiv.nlp.ir.trec.core;
+package cz.zcu.kiv.nlp.ir.trec;
 
-import cz.zcu.kiv.nlp.ir.trec.core.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Result;
-import cz.zcu.kiv.nlp.ir.trec.core.data.Topic;
+import cz.zcu.kiv.nlp.ir.trec.data.Document;
+import cz.zcu.kiv.nlp.ir.trec.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.data.Topic;
 import cz.zcu.kiv.nlp.ir.trec.core.searching.Index;
 import cz.zcu.kiv.nlp.ir.trec.core.utils.IOUtils;
 import cz.zcu.kiv.nlp.ir.trec.core.utils.SerializedDataHelper;
@@ -51,7 +51,7 @@ public class TestTrecEval {
         File serializedData = new File(OUTPUT_DIR + "/czechData.bin");
 
         List<Document> documents = new ArrayList<Document>();
-        log.info("load");
+        log.info("loading...");
         try {
             if (serializedData.exists()) {
                 documents = SerializedDataHelper.loadDocument(serializedData);
@@ -61,9 +61,10 @@ public class TestTrecEval {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        log.info("Documents: " + documents.size());
+        log.info("Number of documents loaded: " + documents.size());
+        log.info("Indexing all articles... " + documents.size());
         index.index(documents);
-
+        log.info("Indexing successfully finished... " + documents.size());
 
         List<String> lines = new ArrayList<String>();
 

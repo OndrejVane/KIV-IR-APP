@@ -1,4 +1,4 @@
-package cz.zcu.kiv.nlp.ir.trec.api_model;
+package cz.zcu.kiv.nlp.ir.trec.api;
 
 import java.util.Date;
 

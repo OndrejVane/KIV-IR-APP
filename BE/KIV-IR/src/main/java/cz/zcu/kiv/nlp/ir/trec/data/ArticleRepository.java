@@ -1,4 +1,4 @@
-package cz.zcu.kiv.nlp.ir.trec.core.data;
+package cz.zcu.kiv.nlp.ir.trec.data;
 
 
 
