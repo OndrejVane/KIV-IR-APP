@@ -14,10 +14,12 @@ relevantních dokumentů seřazených dle relevance.
 - Webové rozhraní
 
 ## Struktura projektu
-- BE/KIV-IR - kořenový adresář pro backend projektu, zde je jádro vyhledávání (package core)
-- FE/KIV-IR - kořenový adresář pro frontend projektu, aplikace je napsaná v Angularu a kominuje s backedndem pomocí JSON
-- docker-compose.yml - soubor pro spuštění celé aplikace v dockeru (příkazem docker-compose pull a docker-compose up)
-
+* BE/KIV-IR - kořenový adresář pro backend projektu, zde je jádro vyhledávání (package core)
+* FE/KIV-IR - kořenový adresář pro frontend projektu, aplikace je napsaná v Angularu a komunikuje s backendem pomocí JSON
+* docker-compose.yml - soubor pro spuštění celé aplikace v dockeru viz příkazy níže
+  * ```docker-compose pull``` - stáhnutí existujích image z docker repository [backend image](https://hub.docker.com/r/ondrejvane/ir-backend) a [frontend image](https://hub.docker.com/r/ondrejvane/ir-frontend)
+  * ```docker-compose build``` - lokální build všech potřebných image
+  * ```docker-compose up``` - spuštění příslušným image (aplikace nastartuje na adresue localhost:4200)
 ## Výledky evaluačního skriptu
 - num_q          	all	50
 - num_ret        	all	1737264
