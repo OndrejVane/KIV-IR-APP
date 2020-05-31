@@ -150,9 +150,7 @@ public class Controller {
         LOGGER.info("GET /save => saveIndexToFile()");
         index.saveInvertedIndexToFile(INDEX_FILE_NAME);
         IOUtils.saveArticlesRepositoryToFile((ArticleRepositoryImpl) articleRepository, ARTICLES_FILE_NAME);
-        index = new Index();
-        articleRepository = new ArticleRepositoryImpl();
-        return new Message(true, "All indexed files stored to file...index cleared");
+        return new Message(true, "All indexed files stored to file...");
     }
 
     /**
