@@ -12,6 +12,7 @@ relevantních dokumentů seřazených dle relevance.
 - File-base index
 - Pozdější doindexování nového dokumentu
 - Webové rozhraní
+- Dokumentace v TEXu
 
 ## Struktura projektu
 * BE/KIV-IR - kořenový adresář pro backend projektu, zde je jádro vyhledávání (package core)
