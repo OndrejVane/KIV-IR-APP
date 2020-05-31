@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {QueryService} from '../../../services/query.service';
 import {QueryRequest} from '../../../model/QueryRequest';
 import {QueryResponse} from '../../../model/QueryResponse';
+import {ResultTableComponent} from './result-table/result-table.component';
+import {Article} from '../../../model/Article';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
+    this.response = null;
     this.queryService.searchPost(new QueryRequest(this.expression, new Date())).subscribe( response => {
       this.response = response;
     });

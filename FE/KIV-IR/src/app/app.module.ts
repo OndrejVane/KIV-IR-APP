@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './components/pages/settings/settings.component';
+import { ResultTableComponent } from './components/pages/home/result-table/result-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SettingsComponent } from './components/pages/settings/settings.componen
     ArticlesComponent,
     AddComponent,
     TableComponent,
-    SettingsComponent
+    SettingsComponent,
+    ResultTableComponent
   ],
   imports: [
     BrowserModule,

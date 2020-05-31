@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {QueryService} from '../../../services/query.service';
-import {Article} from '../../../model/Article';
 
 @Component({
   selector: 'app-articles',

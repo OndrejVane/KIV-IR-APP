@@ -27,7 +27,7 @@ public class Controller {
     private static final String FILE_NAME = "articles.json";
     private static final String INDEX_FILE_NAME = "file_index";
     private static final String ARTICLES_FILE_NAME = "file_articles";
-    private static final int NUMBER_OF_HITS = 10;
+    private static final int NUMBER_OF_HITS = 20;
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
     ArticleRepository articleRepository = new ArticleRepositoryImpl();
     Index index = new Index();
@@ -39,6 +39,7 @@ public class Controller {
      */
     @GetMapping("/init")
     public Message init() {
+        LOGGER.info("GET / => init()");
 
         List<Article> articles = IOUtils.readArticlesFromFile(FILE_NAME);
 
@@ -62,6 +63,10 @@ public class Controller {
         LOGGER.info("POST / => searchQuery(queryRequest)");
 
         LOGGER.info("Searching: " + queryRequest.getQuery());
+
+        if(queryRequest.getQuery() == null){
+            return new QueryResponse(new ArrayList<>(), 0, "");
+        }
         
         QueryResult results = index.search(queryRequest.getQuery(), NUMBER_OF_HITS);
         List<cz.zcu.kiv.nlp.ir.trec.api.Article> articles = new ArrayList<>();
@@ -119,7 +124,7 @@ public class Controller {
      */
     @PostMapping("/set")
     public boolean setIndexModel(@RequestBody boolean isVectorModel) {
-        LOGGER.info("POST /set => setIndexModel()");
+        LOGGER.info("POST /set => setIndexModel(isVectorModel)");
         if(isVectorModel) {
             index.setSearchModel(SearchModel.VECTOR_MODEL);
             LOGGER.info("Vector model set");

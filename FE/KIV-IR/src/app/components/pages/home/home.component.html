@@ -33,10 +33,5 @@
   </div>
   <p *ngIf="response">Sent expression: {{response.expression}}</p>
   <p *ngIf="response">Total results: {{response.numberOfAllResults}}</p>
-  <ul *ngIf="response">
-    <li *ngFor="let article of response.articles">
-      Rank: {{article.rank}}, ID: {{article.id}}, Title: {{ article.title }}, Score: {{ article.score}}
-    </li>
-  </ul>
-
+  <app-result-table *ngIf="response" [response1]="response.articles"></app-result-table>
 </div>
