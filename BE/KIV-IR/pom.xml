@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>cz.zcu.kiv.nlp.ir.trec</groupId>
 	<artifactId>InformationRetrieval</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>InformationRetrieval</name>
 	<description> Semestral work for the subject of information retrieval</description>
 

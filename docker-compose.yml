@@ -4,7 +4,7 @@ services:
   ir-backend:
     build:
       ./BE/KIV-IR
-    image: ondrejvane/ir-backend:1.0.0
+    image: ondrejvane/ir-backend:1.0.1
     container_name: ir-backend
     ports:
       - 8080:8080
@@ -12,7 +12,7 @@ services:
   ir-fronted:
     build:
       ./FE/KIV-IR
-    image: ondrejvane/ir-frontend:1.0.0
+    image: ondrejvane/ir-frontend:1.0.1
     container_name: ir-frontend
     ports:
       - 4200:80
