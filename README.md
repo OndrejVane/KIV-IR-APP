@@ -1,2 +1,7 @@
 # KIV-IR
- Semestral work for the subject of information retrieval
+ Semestrální práce z předmětu KIV/IR
+ 
+# Nadstandardní funkčnosti
+- File-base index
+- Pozdější doindexování nového dokumentu
+- Webové rozhraní
