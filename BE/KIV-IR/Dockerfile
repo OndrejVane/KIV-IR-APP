@@ -11,5 +11,6 @@ FROM adoptopenjdk:11-jre-hotspot
 COPY --from=build /workspace/target/*.jar app.jar
 COPY ./stopwords.txt stopwords.txt
 COPY ./articles.json articles.json
+COPY ./TREC/czechData.bin ./TREC/czechData.bin
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
