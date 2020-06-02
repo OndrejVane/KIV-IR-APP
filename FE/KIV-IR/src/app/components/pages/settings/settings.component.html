@@ -1,6 +1,7 @@
 <div class="text-box app-top-margin">
   <div class="buttons">
-    <button (click)="init()" class="btn btn-outline-secondary" type="submit">Initialization</button>
+    <button (click)="initMyData()" class="btn btn-outline-secondary" type="submit">Index my crawled date</button>
+    <button (click)="initEvalData()" class="btn btn-outline-secondary" type="submit">Index eval data</button>
     <button (click)="save()" class="btn btn-outline-secondary" type="submit">Save to file</button>
     <button (click)="load()" class="btn btn-outline-secondary" type="submit">Load from file</button>
     <button (click)="delete()" id="delete" class="btn btn-outline-secondary" type="submit">Delete all</button>
@@ -17,7 +18,8 @@
   </div>
 
   <ul class="help">
-    <li><b>Initialization</b> - It will load all articles from file stored on backend and then will index it.</li>
+    <li><b>Index my crawled date</b> - It will index all articles from file stored on backend. My crawled data.</li>
+    <li><b>Index eval data</b> - It will index all documents from file stored on backend. Evaluation data.</li>
     <li><b>Save to file</b> - It will store all indexed articles to file.</li>
     <li><b>Load from file</b> - It will load all indexed asrticles from file.</li>
     <li><b>Delete</b> - It will delete all indexed data in app</li>

@@ -62,7 +62,10 @@ public class InvertedList implements Serializable {
      * @param documents list dokumentů
      */
     public void addDocumentsToInvertedList(List<Document> documents) {
+        int index = 0;
         for (Document document : documents) {
+            log.info("Document inexed:" + index);
+            index++;
             addDocumentToInvertedList(document);
         }
         log.info("Data indexed :" + invertedList.size());

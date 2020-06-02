@@ -21,7 +21,8 @@ export class QueryService {
   searchUrl = '/';
   article = '/article';
   setModel = '/set';
-  initialization = '/init';
+  initializationMyData = '/initmydata';
+  initializationEvalData = '/initevaldata';
   saveToFile = '/save';
   loadFromFile = '/load';
   delete = '/delete';
@@ -45,7 +46,11 @@ export class QueryService {
   }
 
   initArticles(): Observable<Message> {
-    return this.httpClient.get<Message>(this.backendUrl + this.initialization, httpOptions);
+    return this.httpClient.get<Message>(this.backendUrl + this.initializationMyData, httpOptions);
+  }
+
+  initEvalArticles(): Observable<Message> {
+    return this.httpClient.get<Message>(this.backendUrl + this.initializationEvalData, httpOptions);
   }
 
   saveIndexToFile(): Observable<Message> {

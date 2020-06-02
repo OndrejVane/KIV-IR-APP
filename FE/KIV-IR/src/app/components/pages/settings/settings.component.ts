@@ -29,9 +29,17 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-  init() {
+  initMyData() {
     this.setProgressBar(true);
     this.queryService.initArticles().subscribe(response => {
+      this.message = response;
+      this.setProgressBar(false);
+    });
+  }
+
+  initEvalData() {
+    this.setProgressBar(true);
+    this.queryService.initEvalArticles().subscribe(response => {
       this.message = response;
       this.setProgressBar(false);
     });

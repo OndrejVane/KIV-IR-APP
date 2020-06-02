@@ -1,10 +1,8 @@
 package cz.zcu.kiv.nlp.ir.trec.controller;
 
 
-import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepository;
-import cz.zcu.kiv.nlp.ir.trec.data.ArticleRepositoryImpl;
-import cz.zcu.kiv.nlp.ir.trec.data.Document;
-import cz.zcu.kiv.nlp.ir.trec.data.Result;
+import cz.zcu.kiv.nlp.ir.trec.core.utils.SerializedDataHelper;
+import cz.zcu.kiv.nlp.ir.trec.data.*;
 import cz.zcu.kiv.nlp.ir.trec.core.model.Article;
 import cz.zcu.kiv.nlp.ir.trec.api.Message;
 import cz.zcu.kiv.nlp.ir.trec.core.model.QueryResult;
@@ -17,7 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -28,17 +28,18 @@ public class Controller {
     private static final String INDEX_FILE_NAME = "file_index";
     private static final String ARTICLES_FILE_NAME = "file_articles";
     private static final int NUMBER_OF_HITS = 20;
+    static final String OUTPUT_DIR = "./TREC";
     Logger LOGGER = LoggerFactory.getLogger(Controller.class);
     ArticleRepository articleRepository = new ArticleRepositoryImpl();
     Index index = new Index();
 
     /**
-     * Načte všechny články ze souboru a uloží je do paměti.
+     * Načte všechny články ze souboru "articles.json" a zaindexuje.
      *
      * @return zpráva o úspěšném načtení
      */
-    @GetMapping("/init")
-    public Message init() {
+    @GetMapping("/initmydata")
+    public Message initMyData() {
         LOGGER.info("GET / => init()");
 
         LOGGER.info("Cleaning index and repository");
@@ -47,6 +48,49 @@ public class Controller {
 
 
         List<Article> articles = IOUtils.readArticlesFromFile(FILE_NAME);
+
+        articleRepository.addNewArticles(articles);
+
+        long startTime = System.nanoTime();
+        index.index(articleRepository.getArticlesAsDocument());
+
+        return new Message(true, "All articles "
+                + articles.size() + " successfully idexed in " + (System.nanoTime() - startTime)/ 1000000000 + "s");
+    }
+
+    /**
+     * Načte všechny články ze souboru "czechData.bin" a zaindexuje je.
+     *
+     * @return zpráva o úspěšném načtení
+     */
+    @GetMapping("/initevaldata")
+    public Message initEvalData() {
+        LOGGER.info("GET / => init()");
+
+        LOGGER.info("Cleaning index and repository");
+        index = new Index();
+        articleRepository = new ArticleRepositoryImpl();
+
+        File serializedData = new File(OUTPUT_DIR + "/czechData.bin");
+
+        List<Document> documents = new ArrayList<Document>();
+        List<Article> articles = new ArrayList<>();
+        LOGGER.info("loading...");
+        try {
+            if (serializedData.exists()) {
+                documents = SerializedDataHelper.loadDocument(serializedData);
+            } else {
+                LOGGER.error("Cannot find " + serializedData);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for (Document document : documents ) {
+            Article article = new Article(new Date().toString(), document.getTitle(), "Author", document.getText(), "www.url.cz");
+            articles.add(article);
+        }
+
 
         articleRepository.addNewArticles(articles);
 
