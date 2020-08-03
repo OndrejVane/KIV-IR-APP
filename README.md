@@ -24,6 +24,9 @@ relevantních dokumentů seřazených dle relevance.
 * BE/KIV-IR - kořenový adresář pro backend projektu, zde je jádro vyhledávání (package core)
 * FE/KIV-IR - kořenový adresář pro frontend projektu, aplikace je napsaná v Angularu a komunikuje s backendem pomocí JSON
 * docker-compose.yml - soubor pro spuštění celé aplikace v dockeru viz příkazy níže
+
+## Dokumentace
+[Dokumentace](https://drive.google.com/file/d/1Cr_dzDRwCx_Ej6Bvbu8GV6LZ1e1pqK-P/view?usp=sharing)
   
 ## Výsledky evaluačního skriptu
 - num_q          	all	50
